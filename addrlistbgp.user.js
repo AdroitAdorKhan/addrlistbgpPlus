@@ -3,7 +3,7 @@
 // @namespace    https://github.com/AdroitAdorKhan/addrlistbgpPlus
 // @updateURL    https://raw.githubusercontent.com/AdroitAdorKhan/addrlistbgpPlus/main/addrlistbgp.user.js
 // @downloadURL  https://raw.githubusercontent.com/AdroitAdorKhan/addrlistbgpPlus/main/addrlistbgp.user.js
-// @version      1.0
+// @version      1.1
 // @description  Get Address List from BGP and more.
 // @author       Ador
 // @match        https://bgp.he.net/search*
@@ -88,6 +88,10 @@
 
     // Event listener for the Copy Script button
     $("#cpscript").click(function() {
+        if (listname.trim() === '') {
+            alert("Please enter a list name. List Name can't be empty!");
+            return;
+        }
         copyTable(document.getElementById("tblresult"));
     });
 
