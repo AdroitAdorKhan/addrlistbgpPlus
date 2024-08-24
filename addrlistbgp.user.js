@@ -3,7 +3,7 @@
 // @namespace    https://github.com/AdroitAdorKhan/addrlistbgpPlus
 // @updateURL    https://raw.githubusercontent.com/AdroitAdorKhan/addrlistbgpPlus/main/addrlistbgp.user.js
 // @downloadURL  https://raw.githubusercontent.com/AdroitAdorKhan/addrlistbgpPlus/main/addrlistbgp.user.js
-// @version      1.1
+// @version      1.2
 // @description  Get Address List from BGP and more.
 // @author       Ador
 // @match        https://bgp.he.net/search*
@@ -18,6 +18,7 @@
     // Initial setup: add styles and HTML elements to the page
     $("#content").prepend(`
         <style>
+            h1 {padding-bottom: 10px;}
             .btnx {
                 border: 1px solid #000066;
                 height: 22px;
@@ -33,6 +34,16 @@
                 min-width: 742px;
                 width: 742px;
                 margin-bottom: 8px;
+            }
+            #getscript {
+                background-image: linear-gradient(to bottom right,#000066, #0c0c36);
+                border: none;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 5px;
+                text-decoration: none !important;
+                font-size: 20px;
+                font-weight: bold;
             }
             #tblresult { border: none; width: 100%; }
         </style>
@@ -78,7 +89,9 @@
     });
 
     // Append a link to trigger script generation
-    $("#header_search").append("<a href='#' id='getscript' style='color:#000066;'>Get Address List Script</a>");
+    //$("#header_search").append("<a href='#' id='getscript'>Get Address List Script</a>");
+
+    $("<span style='padding-left: 10px;padding-right: 10px;'>|</span><a href='#' id='getscript'>Get Address List</a>").appendTo("h1:has(a[rel='bookmark'])");
 
     // Event listener for the Get Address List Script link
     $("#getscript").click(function() {
